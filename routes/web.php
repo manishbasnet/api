@@ -11,4 +11,4 @@
 |
 */
 
-Route::get('/profile/{id}', 'DataController@getProfile');
+Route::get('/profile', 'DataController@getProfile');
