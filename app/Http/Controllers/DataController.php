@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Http\JsonResponse;
 
 use Illuminate\Http\Request;
 
@@ -25,6 +26,7 @@ class DataController extends Controller
     {
         // Check if profileId exists in JSON Data
 
+
         // Get data
 
         $result = [
@@ -37,12 +39,12 @@ class DataController extends Controller
             "min_coverage" => "min cov",
             "other_coverage" => "other cov"
         ];
-        $profile = [
-            "id" => $profileId,
-            "result" => [$result]
-        ];
 
-        return json_encode($profile);
+        $data['id'] = $profileId;
+        $data['result'] = [$result];
+
+        $response = new JsonResponse($data);
+        return $response;
     }
 
 }
